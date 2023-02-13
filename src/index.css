@@ -1,0 +1,155 @@
+html{
+  background-image: url(../public/images/back.jpg);
+  
+  background-size: cover;
+  background-color: rgb(62, 61, 61);
+  background-blend-mode: multiply;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  
+}
+
+@media (max-width:1600px) {
+
+.main{
+  width:70%;
+  margin:20px auto ;
+ color: white;
+}
+
+.main h1{
+  margin: 20px 0 100px;
+  letter-spacing: 1px;
+}
+
+.form_wrapper{
+  width: 100%;
+  background-color: rgba(142, 140, 140, 0.7);
+  margin-bottom: 50px;
+}
+
+.form_wrapper h3{
+  padding: 15px 25px;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+
+.form_container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items:end;
+  justify-content: space-between;
+  padding: 10px 25px 30px;
+  gap:30px;
+}
+
+.forms{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+  
+}
+
+
+.title_form input,.rooms_form input,.price_form input,.descr_form input{
+  display: block;
+  width: 100%;
+  padding: 5px 5px;
+}
+
+.title_form label,.rooms_form label,.price_form label,.descr_form label{
+  display: block;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+
+.title_form input::placeholder,.rooms_form input::placeholder,.price_form input::placeholder,.descr_form input::placeholder{
+  padding: 5px 0;
+}
+
+input{
+  color: black;
+}
+
+.descr_form{
+margin-right: 30px;
+}
+
+.title_form,.descr_form{
+  width:35%;
+  min-width: 160px;
+}
+
+.rooms_form, .price_form{
+  width: 6%;
+  min-width: 30px;
+}
+
+.form_container button{
+  width:100px;
+  padding: 7px 20px;
+  font-weight: 700;
+  color: aliceblue;
+  background-color: rgb(62, 177, 127);
+  border-style: none;
+}
+
+.form_container button:hover{
+  background-color: rgb(46, 128, 74);
+}
+
+
+.ul_wrapper{
+  border: solid white 1px;
+}
+
+.ul_header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background-color: rgba(155, 157, 156, 0.5);;
+  
+}
+
+.ul_header h3{
+  
+  font-size:25px;
+  font-weight: 700;
+  color: white;
+}
+
+.li{
+  list-style-type: none;
+  padding: 18px 25px;
+  
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid white;
+ 
+ 
+}
+
+.li button{
+  padding: 7px 25px;
+  background-color: rgb(209, 61, 45);
+  color: white;
+  font-size: 13px;
+  border-style: none;
+  
+}
+
+th{
+  width: 150px;
+  display: inline-block;
+  margin: 0 3px;
+}
+
+}
+

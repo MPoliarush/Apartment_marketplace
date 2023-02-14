@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Form from './components/Form'
 import List from './components/List'
 
@@ -26,10 +26,25 @@ const [hotelsList, setHotelsList] = useState([
 ])
 
 console.log(hotelsList)
+// localStorage.setItem('localData', JSON.stringify(hotelsList))
+
+
+useEffect(() => {
+  const savedData= JSON.parse(localStorage.getItem('localData'));
+  
+  if(savedData==null){
+    setHotelsList(hotelsList)
+  } else if (savedData.length>0){
+    setHotelsList(savedData)
+  }
+}, [setHotelsList]);
+
+
 
 const addNewItem = (data)=>{
   console.log(hotelsList)
   setHotelsList([...hotelsList, data])
+  localStorage.setItem('localData', JSON.stringify([...hotelsList, data]))
 }
 
 const removeItem=(deletedItemID)=>{
@@ -37,6 +52,7 @@ const removeItem=(deletedItemID)=>{
     return hotel.id !==deletedItemID
   })
   setHotelsList(newHotelsList)
+  localStorage.setItem('localData', JSON.stringify(newHotelsList))
 }
 
 

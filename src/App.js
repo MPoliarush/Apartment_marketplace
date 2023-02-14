@@ -32,14 +32,15 @@ const [selectedModeChanges,setSelectedModeChanges] = useState('')
 
 useEffect(() => {
   const savedData= JSON.parse(localStorage.getItem('localData'));
-  const fromLowestToHigth= savedData.sort( (a,b) =>{
-    return a.price-b.price
-  })
-  if(savedData==undefined){
+  
+  if(savedData==null){
     setHotelsList(hotelsList)
   } else if (savedData=='empty'){
     setHotelsList([])
   } else if (savedData.length>0){
+    const fromLowestToHigth= savedData.sort( (a,b) =>{
+      return a.price-b.price
+    })
     setHotelsList(fromLowestToHigth)
   }
 }, []);

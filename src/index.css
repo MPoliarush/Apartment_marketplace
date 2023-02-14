@@ -1,8 +1,8 @@
 html{
-  background-image: url(../public/images/back.jpg);
+  /* background-image: url(../public/images/back.jpg); */
 
   background-size: cover;
-  background-color: rgb(73, 72, 72);
+  background-color: rgb(47, 23, 51);
   background-blend-mode: multiply;
 }
 
@@ -30,7 +30,7 @@ html{
 
 .form_wrapper{
   width: 100%;
-  background-color: rgba(142, 140, 140, 0.7);
+  background-color: rgba(95, 95, 95, 0.7);
   margin-bottom: 50px;
 }
 
@@ -125,7 +125,7 @@ margin-right: 30px;
   display: flex;
   justify-content: space-between;
   padding: 20px 25px;
-  background-color: rgba(142, 140, 140, 0.7);
+  background-color: rgba(95, 95, 95, 0.7)
   
 }
 

@@ -17,7 +17,7 @@ const deleteHandler = ()=>{
                     <tr>
                         <th className="textLi">{props.listData.name}</th>
                         <th className="numbersLi">{props.listData.rooms} {props.listData.rooms=='1' ? 'room' : 'rooms'}</th>
-                        <th className="numbersLi price">${props.listData.price} per day</th>
+                        <th className="numbersLi price">${props.listData.price} / day</th>
                         <th className="textLi descr">{props.listData.descr}</th>
                     </tr>
                     </tbody>

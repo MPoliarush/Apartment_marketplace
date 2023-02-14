@@ -145,11 +145,31 @@ margin-right: 30px;
   
 }
 
-th{
-  width: 150px;
+.tHeader{
+  display: inline-block;
+  padding: 0 25px;
+  margin: 5px 5px 0px;
+}
+
+td{
+  border: solid;
   display: inline-block;
   margin: 0 3px;
+  
 }
+
+.textLi{
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+}
+
+.numbersLi{
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+}
+
 
 }
 

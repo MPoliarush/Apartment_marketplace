@@ -1,7 +1,6 @@
-
+import ListItem from './ListItem'
 
 const List = (props)=>{
-
 
     console.log(props.list)
     return(
@@ -15,21 +14,11 @@ const List = (props)=>{
             </div>
         
             <ul className="">
+    
                 {props.list.map( hotel =>{ 
-                return (
-                    <li className="li" key={Math.random()}>
-                        {/* <p>{hotel.name}/ {hotel.rooms} rooms/ {hotel.price} / {hotel.descr}</p> */}
-                        <table>
-                            <tr>
-                                <th>{hotel.name}</th>
-                                <th>{hotel.rooms}</th>
-                                <th>{hotel.price}</th>
-                                <th>{hotel.descr}</th>
-                            </tr>
-                        </table>
-                        <button>Delete</button>
-                    </li>
-                )}
+                    return (
+                        <ListItem key={Math.random()} listData={hotel}></ListItem>
+                    )}
                 )}
             </ul>
         </div>

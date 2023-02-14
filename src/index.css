@@ -1,8 +1,8 @@
 html{
   background-image: url(../public/images/back.jpg);
-  
+
   background-size: cover;
-  background-color: rgb(62, 61, 61);
+  background-color: rgb(73, 72, 72);
   background-blend-mode: multiply;
 }
 
@@ -67,6 +67,7 @@ html{
   padding: 5px 5px;
 }
 
+
 .title_form label,.rooms_form label,.price_form label,.descr_form label{
   display: block;
   padding-bottom: 10px;
@@ -120,7 +121,7 @@ margin-right: 30px;
   display: flex;
   justify-content: space-between;
   padding: 20px 25px;
-  background-color: rgba(155, 157, 156, 0.5);;
+  background-color: rgba(142, 140, 140, 0.7);
   
 }
 
@@ -139,7 +140,7 @@ margin-right: 30px;
   align-items: center;
   justify-content: space-between;
   border-bottom: solid white 1px;
- 
+ background-color: rgba(109, 110, 110, 0.2);;
  
 }
 

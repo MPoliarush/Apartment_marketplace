@@ -10,13 +10,13 @@ const [newInputs, setNewInputs] = useState({
      descr:''
 })
 
-const [isTitlevalid, setTitleValid] = useState(false)
+const [isTitlevalid, setTitleValid] = useState(true)
 const [isRoomsvalid, setRoomseValid] = useState(true)
 const [isPricevalid, setPricevalid] = useState(true)
 
 const titleHandler=(event)=>{
     console.log(event.target.value)
-    if (event.target.value.length>99 || event.target.value =='' ){
+    if (event.target.value.length>99){
         console.log(newInputs.name.length)
         setTitleValid(false)
         console.log(isTitlevalid)
@@ -86,6 +86,13 @@ const submitHalndler = () =>{
         }
     )
 )
+
+    if (newInputs.name.length =='' ){
+        console.log(newInputs.name.length)
+        setTitleValid(false)
+        return
+    }
+
     if (isTitlevalid!==true || isRoomsvalid!==true || isPricevalid!==true){
         return
     }
@@ -110,7 +117,7 @@ return (
             <div className="forms">
                 <form className="title_form">
                     <label htmlFor='title'>Title*</label>
-                    <input className={isTitlevalid==false ? 'invalid' : '' } id='title' type='text' min='1' max='99' placeholder="name" onChange={titleHandler} value={newInputs.name}></input>
+                    <input className={isTitlevalid==false ? 'invalid' : '' } id='title' type='text' min='0' max='99' placeholder="name" onChange={titleHandler} value={newInputs.name}></input>
                 </form>
                 <form className="rooms_form">
                     <label htmlFor='rooms'>Rooms*</label>

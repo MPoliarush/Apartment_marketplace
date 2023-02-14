@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import ListItem from './ListItem'
 
 const List = (props)=>{
@@ -11,15 +13,19 @@ const List = (props)=>{
        
     // }
 
-
+const [state,setState]=useState() 
 
     const filterHandler = (event)=>{
         
     }
 
     const sortHandler = (event)=>{
-
+        console.log(event.target.value)
+        setState(event.target.value)
+        props.selected(event.target.value)
     }
+
+    
 
     return(
         <div className='ul_wrapper'>
@@ -33,9 +39,9 @@ const List = (props)=>{
                     <div className='priceFilter'>
                         <span>Order by</span>
 
-                        <select name="select" onChange={sortHandler} value={'value'}> 
-                            <option value="value1">Price: lowest to highest</option>
-                            <option value="value2" selected>Price: highest to lowest</option>
+                        <select name="select" onChange={sortHandler} value={state}> 
+                            <option value="Price: lowest to highest" >Price: lowest to highest</option>
+                            <option value="Price: highest to lowest" >Price: highest to lowest</option>
                         </select>
 
                     </div>

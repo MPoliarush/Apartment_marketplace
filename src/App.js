@@ -25,22 +25,24 @@ const [hotelsList, setHotelsList] = useState([
   }
 ])
 
+console.log(hotelsList)
 
+const [selectedModeChanges,setSelectedModeChanges] = useState('')
 
 
 useEffect(() => {
   const savedData= JSON.parse(localStorage.getItem('localData'));
-  
+  const fromLowestToHigth= savedData.sort( (a,b) =>{
+    return a.price-b.price
+  })
   if(savedData==undefined){
     setHotelsList(hotelsList)
   } else if (savedData=='empty'){
     setHotelsList([])
   } else if (savedData.length>0){
-    setHotelsList(savedData)
+    setHotelsList(fromLowestToHigth)
   }
 }, []);
-
-
 
 const addNewItem = (data)=>{
   console.log(hotelsList)
@@ -61,11 +63,37 @@ const removeItem=(deletedItemID)=>{
 }
 
 
+let filteredData;
+
+
+function selectedMode(selectedModeChoosed){
+  console.log('kogged')
+  if(selectedModeChoosed=='Price: lowest to highest'){
+    filteredData=hotelsList.sort( (a,b) =>{
+      return a.price-b.price
+    })
+  } else if(selectedModeChoosed=='Price: highest to lowest'){
+    filteredData=hotelsList.sort( (a,b) =>{
+      return b.price-a.price
+    })
+  }
+ console.log(filteredData)
+
+ sortChangeHandler(selectedModeChoosed)
+ return 
+}
+
+const sortChangeHandler=(selectedModeChoosed)=>{
+  setSelectedModeChanges(selectedModeChoosed)
+  setHotelsList(filteredData)
+}
+
+
   return (
     <div className='main'>
     <h1>APARTMENTS MARKETPLACE</h1>
       <Form onSubmit={addNewItem}></Form>
-      <List  list={hotelsList} onDelete={removeItem}></List>
+      <List  list={hotelsList} onDelete={removeItem}  selected={selectedMode}></List>
     </div>
   );
 }

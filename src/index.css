@@ -204,7 +204,7 @@ tr{
 }
 
 .price{
-width: 15%;
+width: 17%;
 }
 
 .descr{
@@ -213,12 +213,13 @@ width: 15%;
 
 .filters{
   display: flex;
-  gap: 15px;
+  gap: 50px;
 }
 
 .roomsFilter,.priceFilter {
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 .roomsFilter span{
@@ -227,11 +228,15 @@ width: 15%;
 
 .roomsFilter input{
 margin-left: 8px;
-width: 30px;
+max-width: 30px;
+text-align: center;
 }
 
 select{
-  margin-left: 7px;
+  width:200px;
+  font-size: 15px;
+  margin-left: 10px;
+  color: black;
 }
 
 

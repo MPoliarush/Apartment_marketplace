@@ -24,6 +24,7 @@ const titleHandler=(event)=>{
         setTitleValid(true)
         setNewInputs( prev => (
                 {...prev,
+                id: Math.random(),
                 name:event.target.value
                 }
             )
@@ -43,6 +44,7 @@ const roomsHandler=(event)=>{
         setRoomseValid(true)
         setNewInputs( prev => (
             {...prev,
+            id: Math.random(),
             rooms:event.target.value
             }
         ))
@@ -55,6 +57,7 @@ const priceHandler=(event)=>{
     setPricevalid(true)
     setNewInputs( prev => (
         {...prev,
+        id: Math.random(),
         price:event.target.value
         }
     )
@@ -66,6 +69,7 @@ const descrHandler=(event)=>{
     
     setNewInputs( prev => (
         {...prev,
+            id: Math.random(),
             descr:event.target.value
         }
     )
@@ -74,6 +78,7 @@ const descrHandler=(event)=>{
 }
 
 console.log(isTitlevalid,isRoomsvalid,isPricevalid)
+
 const submitHalndler = () =>{
     console.log(newInputs)
     setNewInputs( prev => (
@@ -82,6 +87,11 @@ const submitHalndler = () =>{
         }
         )
     )
+
+    if (newInputs.id =='' ){
+        console.log('wrong id')
+        return
+    }
 
     if (newInputs.name.length =='' ){
         console.log(newInputs.name.length)

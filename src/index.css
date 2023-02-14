@@ -21,7 +21,8 @@ html{
 }
 
 .main h1{
-  margin: 20px 0 100px;
+  margin: 30px auto;
+  text-align: center;
   letter-spacing: 1px;
 }
 
@@ -130,7 +131,6 @@ margin-right: 30px;
 .li{
   list-style-type: none;
   padding: 18px 25px;
-  
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -141,12 +141,18 @@ margin-right: 30px;
 }
 
 .li button{
+  
   padding: 7px 25px;
   background-color: rgb(209, 61, 45);
   color: white;
   font-size: 13px;
   border-style: none;
   
+}
+
+table{
+  width: 80%;
+  word-wrap: break-word;
 }
 
 .tHeader{
@@ -163,16 +169,33 @@ td{
   
 }
 
+tr{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+
 .textLi{
   display: inline-block;
-  width: 150px;
+  width: 27%;
   text-align: left;
+  
 }
 
 .numbersLi{
   display: inline-block;
-  width: 150px;
+  width: 12%;
   text-align: left;
+  
+}
+
+.price{
+width: 15%;
+}
+
+.descr{
+  width: 35%
 }
 
 .filters{

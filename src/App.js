@@ -26,7 +26,6 @@ const [hotelsList, setHotelsList] = useState([
 ])
 
 console.log(hotelsList)
-// localStorage.setItem('localData', JSON.stringify(hotelsList))
 
 
 useEffect(() => {

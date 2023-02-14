@@ -64,6 +64,17 @@ const priceHandler=(event)=>{
     }
 }
 
+const descrHandler=(event)=>{
+    
+    setNewInputs( prev => (
+        {...prev,
+            descr:event.target.value
+        }
+    )
+    )
+   
+}
+
 
 console.log(isTitlevalid,isRoomsvalid,isPricevalid)
 const submitHalndler = () =>{
@@ -94,7 +105,7 @@ return (
                 </form>
                 <form className="descr_form">
                     <label htmlFor='rooms'>Description</label>
-                    <input id='rooms' type='text' min='0' max='999' placeholder="Flat in the city center" ></input>
+                    <input id='rooms' type='text' min='0' max='999' placeholder="Flat in the city center" onChange={descrHandler}></input>
                 </form>
             </div>
             <button type="sumbit" onClick={submitHalndler}>Add</button>

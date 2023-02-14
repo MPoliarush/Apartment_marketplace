@@ -25,12 +25,18 @@ const [hotelsList, setHotelsList] = useState([
   }
 ])
 
+console.log(hotelsList)
 
-
-const addNewItem = (newdata)=>{
-  
+const addNewItem = (data)=>{
   console.log(hotelsList)
-  setHotelsList([...hotelsList, newdata])
+  setHotelsList([...hotelsList, data])
+}
+
+const removeItem=(deletedItemID)=>{
+  const newHotelsList = hotelsList.filter( hotel =>{
+    return hotel.id !==deletedItemID
+  })
+  setHotelsList(newHotelsList)
 }
 
 
@@ -38,7 +44,7 @@ const addNewItem = (newdata)=>{
     <div className='main'>
     <h1>APPARTMENTS MARKETPLACE</h1>
       <Form onSubmit={addNewItem}></Form>
-      <List  list={hotelsList} ></List>
+      <List  list={hotelsList} onDelete={removeItem}></List>
     </div>
   );
 }

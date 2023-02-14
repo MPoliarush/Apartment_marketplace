@@ -6,75 +6,72 @@ const [newInputs, setNewInputs] = useState({
      id:Math.random(),
      name:'',
      rooms:'1',
-     price:'1',
+     price:'50',
      descr:''
 })
 
-const [isTitlevalid, setTitleValid] = useState(true)
+const [isTitlevalid, setTitleValid] = useState(false)
 const [isRoomsvalid, setRoomseValid] = useState(true)
 const [isPricevalid, setPricevalid] = useState(true)
 
 const titleHandler=(event)=>{
     console.log(event.target.value)
-    setNewInputs( prev => (
-        {...prev,
-        name:event.target.value
-        }
-    )
-    )
-
+    if (event.target.value.length>99 || event.target.value.length === 0 ){
+        console.log(newInputs.name.length)
+        setTitleValid(false)
+        console.log(isTitlevalid)
+    }else { 
+        setTitleValid(true)
+        setNewInputs( prev => (
+                {...prev,
+                name:event.target.value
+                }
+            )
+        )
+    }
     console.log(newInputs)
 }
 
 const roomsHandler=(event)=>{
     console.log(event.target.value)
-    setNewInputs( prev => (
-        {...prev,
-        rooms:event.target.value
-        }
-    )
-    )
+    
+    if (event.target.value==='0'){
+        setRoomseValid(false)
+        console.log(isRoomsvalid)
+    } else {
+        setRoomseValid(true)
+        setNewInputs( prev => (
+            {...prev,
+            rooms:event.target.value
+            }
+        ))
+    }
 }
 
 const priceHandler=(event)=>{
     console.log(event.target.value)
-    setNewInputs( prev => (
-        {...prev,
-        price:event.target.value
-        }
-    )
-    )
-}
-
-const descrHandler=(event)=>{
-    console.log(event.target.value)
-}
-
-
-const submitHalndler = () =>{
-    console.log(newInputs)
-    if (newInputs.name.length>99 || newInputs.name.length === 0 ){
-        console.log(newInputs.name.length)
-        setTitleValid(false)
-    }else { 
-        setTitleValid(true)
-    }
-
-    if (newInputs.rooms==='0'){
-        console.log('logged')
-        setRoomseValid(false)
-    } else {
-        setRoomseValid(true)
-    }
-
-    if (newInputs.price<='0' || newInputs.price==='00'){
-        console.log('logged')
+    if (event.target.value<='0' || event.target.value==='00'){
         setPricevalid(false)
+        console.log(isPricevalid)
     } else {
         setPricevalid(true)
+        setNewInputs( prev => (
+            {...prev,
+            price:event.target.value
+            }
+        )
+        )
     }
+}
 
-    props.onSubmit(newInputs)
+
+console.log(isTitlevalid,isRoomsvalid,isPricevalid)
+const submitHalndler = () =>{
+    console.log(newInputs)
+    if (isTitlevalid!==true || isRoomsvalid!==true || isPricevalid!==true){
+        return
+    }
+    props.onSubmit(newInputs) 
 
 }
 
@@ -97,7 +94,7 @@ return (
                 </form>
                 <form className="descr_form">
                     <label htmlFor='rooms'>Description</label>
-                    <input id='rooms' type='text' min='0' max='999' placeholder="Flat in the city center" onChange={descrHandler}></input>
+                    <input id='rooms' type='text' min='0' max='999' placeholder="Flat in the city center" ></input>
                 </form>
             </div>
             <button type="sumbit" onClick={submitHalndler}>Add</button>

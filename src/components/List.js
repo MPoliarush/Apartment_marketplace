@@ -1,9 +1,16 @@
 import ListItem from './ListItem'
 
 const List = (props)=>{
+  
 
-    console.log(props.list)
-    
+    // const removeItem=(id)=>{
+    //     const decreasedList = props.list.filter( item =>{
+    //         return item.id !== id
+    //     } )
+    //     console.log(decreasedList)
+       
+    // }
+
     return(
         <div className='ul_wrapper'>
             <div className="ul_header">
@@ -27,7 +34,7 @@ const List = (props)=>{
     
                 {props.list.map( hotel =>{ 
                     return (
-                        <ListItem key={Math.random()} listData={hotel}></ListItem>
+                        <ListItem key={Math.random()} listData={hotel} onDelete={props.onDelete}></ListItem>
                     )}
                 )}
             </ul>

@@ -1,6 +1,16 @@
 
 
 const ListItem=(props)=>{
+
+
+
+const deleteHandler = ()=>{
+    const deletedItemId = props.listData.id
+    console.log(deletedItemId)
+    props.onDelete(deletedItemId)
+}
+
+
     return(
             <li className="li" >
                 <table>
@@ -15,7 +25,7 @@ const ListItem=(props)=>{
                     </tbody>
                    
                 </table>
-                <button>Delete</button>
+                <button onClick={deleteHandler}>Delete</button>
             </li>
     )
 }

@@ -100,12 +100,15 @@ margin-right: 30px;
   padding: 7px 20px;
   font-weight: 700;
   color: aliceblue;
-  background-color: rgb(62, 177, 127);
+  background-color: rgb(15, 160, 70);
   border-style: none;
+  transition: 0.3s;
 }
 
 .form_container button:hover{
-  background-color: rgb(46, 128, 74);
+  background-color: rgb(14, 121, 55);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 
@@ -135,19 +138,25 @@ margin-right: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid white;
+  border-bottom: solid white 1px;
  
  
 }
 
 .li button{
-  
+  width:100px;
   padding: 7px 25px;
   background-color: rgb(209, 61, 45);
   color: white;
   font-size: 13px;
   border-style: none;
-  
+  transition: 0.3s;
+}
+
+.li button:hover{
+  cursor: pointer;
+  background-color: rgb(204, 26, 6);
+  transition: 0.3s;
 }
 
 table{

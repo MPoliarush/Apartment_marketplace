@@ -14,7 +14,7 @@ const List = (props)=>{
     return(
         <div className='ul_wrapper'>
             <div className="ul_header">
-                <h3>Available Apartments (3)</h3>
+                <h3>Available Apartments ({props.list.length})</h3>
                 <div className='filters'>
                     <div className='roomsFilter'>
                         <span>Filter by rooms</span>

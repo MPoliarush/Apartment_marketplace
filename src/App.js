@@ -57,7 +57,7 @@ const removeItem=(deletedItemID)=>{
 
   return (
     <div className='main'>
-    <h1>APPARTMENTS MARKETPLACE</h1>
+    <h1>APARTMENTS MARKETPLACE</h1>
       <Form onSubmit={addNewItem}></Form>
       <List  list={hotelsList} onDelete={removeItem}></List>
     </div>

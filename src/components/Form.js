@@ -3,7 +3,7 @@ import { useState } from "react"
 const Form = (props)=>{
 
 const [newInputs, setNewInputs] = useState({
-     id:Math.random(),
+     id:'',
      name:'',
      rooms:'1',
      price:'50',
@@ -16,7 +16,7 @@ const [isPricevalid, setPricevalid] = useState(true)
 
 const titleHandler=(event)=>{
     console.log(event.target.value)
-    if (event.target.value.length>99 || event.target.value.length === 0 ){
+    if (event.target.value.length>99 || event.target.value =='' ){
         console.log(newInputs.name.length)
         setTitleValid(false)
         console.log(isTitlevalid)
@@ -30,6 +30,7 @@ const titleHandler=(event)=>{
         )
     }
     console.log(newInputs)
+
 }
 
 const roomsHandler=(event)=>{
@@ -79,10 +80,26 @@ const descrHandler=(event)=>{
 console.log(isTitlevalid,isRoomsvalid,isPricevalid)
 const submitHalndler = () =>{
     console.log(newInputs)
+    setNewInputs( prev => (
+        {...prev,
+        id: Math.random(),
+        }
+    )
+)
     if (isTitlevalid!==true || isRoomsvalid!==true || isPricevalid!==true){
         return
     }
+
     props.onSubmit(newInputs) 
+
+    setNewInputs( prev => (
+        {...prev,
+            name:'',
+            rooms:'1',
+            price:'50',
+            descr:''
+        }
+    ))
 
 }
 
@@ -93,19 +110,19 @@ return (
             <div className="forms">
                 <form className="title_form">
                     <label htmlFor='title'>Title*</label>
-                    <input className={isTitlevalid==false ? 'invalid' : '' } id='title' type='text' min='1' max='99' placeholder="name" onChange={titleHandler}></input>
+                    <input className={isTitlevalid==false ? 'invalid' : '' } id='title' type='text' min='1' max='99' placeholder="name" onChange={titleHandler} value={newInputs.name}></input>
                 </form>
                 <form className="rooms_form">
                     <label htmlFor='rooms'>Rooms*</label>
-                    <input className={isRoomsvalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' max='99999' step='1' defaultValue='1' placeholder="1" onChange={roomsHandler}></input>
+                    <input className={isRoomsvalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' max='99999' step='1' defaultValue='1' placeholder="1" onChange={roomsHandler} value={newInputs.rooms}></input>
                 </form>
                 <form className="price_form">
                     <label htmlFor='rooms'>Price*</label>
-                    <input className={isPricevalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' step='1' defaultValue='50' onChange={priceHandler}></input>
+                    <input className={isPricevalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' step='1' defaultValue='50' onChange={priceHandler} value={newInputs.price}></input>
                 </form>
                 <form className="descr_form">
                     <label htmlFor='rooms'>Description</label>
-                    <input id='rooms' type='text' min='0' max='999' placeholder="Flat in the city center" onChange={descrHandler}></input>
+                    <input id='rooms' type='text' min='0' max='999' placeholder="Flat in the city center" onChange={descrHandler} value={newInputs.descr}></input>
                 </form>
             </div>
             <button type="sumbit" onClick={submitHalndler}>Add</button>

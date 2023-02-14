@@ -5,8 +5,8 @@ const Form = (props)=>{
 const [newInputs, setNewInputs] = useState({
      id:'',
      name:'',
-     rooms:'1',
-     price:'50',
+     rooms:'',
+     price:'',
      descr:''
 })
 
@@ -133,11 +133,11 @@ return (
                 </form>
                 <form className="rooms_form">
                     <label htmlFor='rooms'>Rooms*</label>
-                    <input className={isRoomsvalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' max='99999' step='1' defaultValue='1' placeholder="1" onChange={roomsHandler} value={newInputs.rooms}></input>
+                    <input className={isRoomsvalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' max='99999' step='1' placeholder='1' onChange={roomsHandler} value={newInputs.rooms}></input>
                 </form>
                 <form className="price_form">
                     <label htmlFor='rooms'>Price*</label>
-                    <input className={isPricevalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' step='1' defaultValue='50' onChange={priceHandler} value={newInputs.price}></input>
+                    <input className={isPricevalid==false ? 'invalid' : '' } id='rooms' type='number' min='1' step='1' placeholder='50' onChange={priceHandler} value={newInputs.price}></input>
                 </form>
                 <form className="descr_form">
                     <label htmlFor='rooms'>Description</label>

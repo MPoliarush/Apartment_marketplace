@@ -77,6 +77,7 @@ html{
 
 .title_form input::placeholder,.rooms_form input::placeholder,.price_form input::placeholder,.descr_form input::placeholder{
   padding: 5px 0;
+  color: rgb(194, 191, 191);
 }
 
 input{

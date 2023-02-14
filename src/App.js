@@ -25,18 +25,20 @@ const [hotelsList, setHotelsList] = useState([
   }
 ])
 
-console.log(hotelsList)
+
 
 
 useEffect(() => {
   const savedData= JSON.parse(localStorage.getItem('localData'));
   
-  if(savedData==null){
+  if(savedData==undefined){
     setHotelsList(hotelsList)
+  } else if (savedData=='empty'){
+    setHotelsList([])
   } else if (savedData.length>0){
     setHotelsList(savedData)
   }
-}, [setHotelsList]);
+}, []);
 
 
 
@@ -52,6 +54,10 @@ const removeItem=(deletedItemID)=>{
   })
   setHotelsList(newHotelsList)
   localStorage.setItem('localData', JSON.stringify(newHotelsList))
+
+  if(JSON.parse(localStorage.getItem('localData'))==0){
+    localStorage.setItem('localData', JSON.stringify('empty'))
+  }
 }
 
 

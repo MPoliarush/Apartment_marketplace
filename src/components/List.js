@@ -11,6 +11,16 @@ const List = (props)=>{
        
     // }
 
+
+
+    const filterHandler = (event)=>{
+        
+    }
+
+    const sortHandler = (event)=>{
+
+    }
+
     return(
         <div className='ul_wrapper'>
             <div className="ul_header">
@@ -18,14 +28,16 @@ const List = (props)=>{
                 <div className='filters'>
                     <div className='roomsFilter'>
                         <span>Filter by rooms</span>
-                        <input type='number' min='1' defaultValue='1'/>
+                        <input type='number' min='1' defaultValue='1' onChange={filterHandler} />
                     </div>
                     <div className='priceFilter'>
                         <span>Order by</span>
-                        <select name="select"> 
+
+                        <select name="select" onChange={sortHandler} value={'value'}> 
                             <option value="value1">Price: lowest to highest</option>
                             <option value="value2" selected>Price: highest to lowest</option>
                         </select>
+
                     </div>
                 </div>                             
             </div>

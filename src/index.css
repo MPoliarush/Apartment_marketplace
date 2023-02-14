@@ -141,7 +141,8 @@ margin-right: 30px;
   align-items: center;
   justify-content: space-between;
   border-bottom: solid white 1px;
- background-color: rgba(109, 110, 110, 0.2);;
+ background-color: rgba(109, 110, 110, 0.2);
+ transition: 1s ease-in;
  
 }
 

@@ -121,7 +121,7 @@ const submitHalndler = () =>{
         {...prev,
             name:'',
             rooms:'',
-            price:'50',
+            price:'',
             descr:''
         }
     ))

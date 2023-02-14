@@ -9,7 +9,7 @@ html{
 *{
   padding: 0;
   margin: 0;
-  
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width:1600px) {
@@ -24,6 +24,7 @@ html{
   margin: 30px auto;
   text-align: center;
   letter-spacing: 1px;
+  font-weight: 800;
 }
 
 .form_wrapper{
@@ -35,7 +36,7 @@ html{
 .form_wrapper h3{
   padding: 15px 25px;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: white;
 }
 
@@ -128,7 +129,7 @@ margin-right: 30px;
 .ul_header h3{
   
   font-size:25px;
-  font-weight: 700;
+  font-weight: 800;
   color: white;
 }
 
@@ -152,6 +153,7 @@ margin-right: 30px;
   font-size: 13px;
   border-style: none;
   transition: 0.3s;
+  font-weight: 700;
 }
 
 .li button:hover{

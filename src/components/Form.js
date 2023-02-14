@@ -51,18 +51,15 @@ const roomsHandler=(event)=>{
 
 const priceHandler=(event)=>{
     console.log(event.target.value)
-    if (event.target.value<='0' || event.target.value==='00'){
-        setPricevalid(false)
-        console.log(isPricevalid)
-    } else {
-        setPricevalid(true)
-        setNewInputs( prev => (
-            {...prev,
-            price:event.target.value
-            }
-        )
-        )
-    }
+    
+    setPricevalid(true)
+    setNewInputs( prev => (
+        {...prev,
+        price:event.target.value
+        }
+    )
+    )
+    
 }
 
 const descrHandler=(event)=>{
@@ -76,7 +73,6 @@ const descrHandler=(event)=>{
    
 }
 
-
 console.log(isTitlevalid,isRoomsvalid,isPricevalid)
 const submitHalndler = () =>{
     console.log(newInputs)
@@ -84,12 +80,18 @@ const submitHalndler = () =>{
         {...prev,
         id: Math.random(),
         }
+        )
     )
-)
 
     if (newInputs.name.length =='' ){
         console.log(newInputs.name.length)
         setTitleValid(false)
+        return
+    }
+
+    if (newInputs.price==''){
+        setPricevalid(false)
+        console.log('validation logged')
         return
     }
 

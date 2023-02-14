@@ -3,7 +3,7 @@ import { useState } from "react"
 const Form = (props)=>{
 
 const [newInputs, setNewInputs] = useState({
-     id:'',
+     id:Math.random(),
      name:'',
      rooms:'',
      price:'',
@@ -37,7 +37,7 @@ const titleHandler=(event)=>{
 const roomsHandler=(event)=>{
     console.log(event.target.value)
     
-    if (event.target.value==='0'){
+    if (event.target.value ==''){
         setRoomseValid(false)
         console.log(isRoomsvalid)
     } else {
@@ -99,6 +99,12 @@ const submitHalndler = () =>{
         return
     }
 
+    if (newInputs.rooms.length ==0 ){
+        console.log(newInputs.rooms.length)
+        setRoomseValid(false)
+        return
+    }
+
     if (newInputs.price==''){
         setPricevalid(false)
         console.log('validation logged')
@@ -114,7 +120,7 @@ const submitHalndler = () =>{
     setNewInputs( prev => (
         {...prev,
             name:'',
-            rooms:'1',
+            rooms:'',
             price:'50',
             descr:''
         }

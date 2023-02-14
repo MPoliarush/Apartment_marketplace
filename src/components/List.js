@@ -3,6 +3,7 @@ import ListItem from './ListItem'
 const List = (props)=>{
 
     console.log(props.list)
+    
     return(
         <div className='ul_wrapper'>
             <div className="ul_header">

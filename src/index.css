@@ -55,6 +55,10 @@ html{
   
 }
 
+.invalid{
+  border: red solid 1px;
+}
+
 
 .title_form input,.rooms_form input,.price_form input,.descr_form input{
   display: block;

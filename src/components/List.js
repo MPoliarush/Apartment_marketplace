@@ -13,33 +13,53 @@ const List = (props)=>{
        
     // }
 
-const [state,setState]=useState() 
+const [stateSort,setStateSort]=useState('') 
+const [stateFilter,setStateFilter]=useState('') 
 
-    const filterHandler = (event)=>{
-        
-    }
-
+    
     const sortHandler = (event)=>{
         console.log(event.target.value)
-        setState(event.target.value)
+        setStateSort(event.target.value)
         props.selected(event.target.value)
     }
 
-    
+    const filterHandler = (event)=>{
+        console.log(event.target.value)
+        setStateFilter(event.target.value)
+
+        props.filtered(event.target.value)
+    }
+
+const filteredList = props.list.filter( item =>{
+    return item.rooms == stateFilter}).map( hotel =>{ 
+    return (
+        <ListItem key={Math.random()} listData={hotel} onDelete={props.onDelete}></ListItem>
+    )})
+
+
+
+const ul = props.list.map( hotel =>{ 
+    return (
+        <ListItem key={Math.random()} listData={hotel} onDelete={props.onDelete}></ListItem>
+    )}
+)
+   
+   console.log(filteredList) 
+
 
     return(
         <div className='ul_wrapper'>
             <div className="ul_header">
-                <h3>Available Apartments ({props.list.length})</h3>
+                <h3>Available Apartments ({stateFilter.length>0 ? filteredList.length : ul.length})</h3>
                 <div className='filters'>
                     <div className='roomsFilter'>
                         <span>Filter by rooms</span>
-                        <input type='number' min='1' defaultValue='1' onChange={filterHandler} />
+                        <input type='text' min='1' onChange={filterHandler} value={stateFilter}/>
                     </div>
                     <div className='priceFilter'>
                         <span>Order by</span>
 
-                        <select name="select" onChange={sortHandler} value={state}> 
+                        <select name="select" onChange={sortHandler} value={stateSort}> 
                             <option value="Price: lowest to highest" >Price: lowest to highest</option>
                             <option value="Price: highest to lowest" >Price: highest to lowest</option>
                         </select>
@@ -50,11 +70,12 @@ const [state,setState]=useState()
         
             <ul className="">
     
-                {props.list.map( hotel =>{ 
+                {/* {props.list.map( hotel =>{ 
                     return (
                         <ListItem key={Math.random()} listData={hotel} onDelete={props.onDelete}></ListItem>
                     )}
-                )}
+                )} */}
+                {stateFilter.length>0 ? filteredList : ul}
             </ul>
         </div>
         

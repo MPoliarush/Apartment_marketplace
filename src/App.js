@@ -69,6 +69,8 @@ const addNewItem = (data)=>{
   .then(response=>console.log(response.data))
   
   setHotelsList([...hotelsList, data])
+
+  window.location.reload()
 }
 
 const removeItem=(deletedItemID)=>{

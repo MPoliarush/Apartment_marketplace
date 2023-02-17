@@ -1,34 +1,21 @@
 import { useState } from 'react'
-
 import ListItem from './ListItem'
 
 const List = (props)=>{
-  
-
-    // const removeItem=(id)=>{
-    //     const decreasedList = props.list.filter( item =>{
-    //         return item.id !== id
-    //     } )
-    //     console.log(decreasedList)
-       
-    // }
 
 const [stateSort,setStateSort]=useState('') 
 const [stateFilter,setStateFilter]=useState('') 
 
-    
-    const sortHandler = (event)=>{
-        console.log(event.target.value)
-        setStateSort(event.target.value)
-        props.selected(event.target.value)
-    }
 
-    const filterHandler = (event)=>{
-        console.log(event.target.value)
-        setStateFilter(event.target.value)
+const sortHandler = (event)=>{
+    setStateSort(event.target.value)
+    props.selected(event.target.value)
+}
 
-        props.filtered(event.target.value)
-    }
+const filterHandler = (event)=>{
+    setStateFilter(event.target.value)
+    props.filtered(event.target.value)
+}
 
 const filteredList = props.list.filter( item =>{
     return item.rooms == stateFilter}).map( hotel =>{ 
@@ -44,8 +31,6 @@ const ul = props.list.map( hotel =>{
     )}
 )
    
-   console.log(filteredList) 
-
 
     return(
 

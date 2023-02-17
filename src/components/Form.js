@@ -14,16 +14,12 @@ const [isRoomsvalid, setRoomseValid] = useState(true)
 const [isPricevalid, setPricevalid] = useState(true)
 
 const titleHandler=(event)=>{
-    console.log(event.target.value)
     if (event.target.value.length>99){
-        console.log(newInputs.name.length)
         setTitleValid(false)
-        console.log(isTitlevalid)
     }else { 
         setTitleValid(true)
         setNewInputs( prev => (
                 {...prev,
-            
                 name:event.target.value
                 }
             )
@@ -34,30 +30,20 @@ const titleHandler=(event)=>{
 }
 
 const roomsHandler=(event)=>{
-    console.log(event.target.value)
+    setRoomseValid(true)
+    setNewInputs( prev => (
+        {...prev,
+        rooms:event.target.value
+        }
+    ))
     
-    // if (event.target.value ==''){
-    //     setRoomseValid(false)
-    //     console.log(isRoomsvalid)
-    // } else {
-        setRoomseValid(true)
-        setNewInputs( prev => (
-            {...prev,
-         
-            rooms:event.target.value
-            }
-        ))
-        
     }
 
 
 const priceHandler=(event)=>{
-    console.log(event.target.value)
-    
     setPricevalid(true)
     setNewInputs( prev => (
         {...prev,
-  
         price:event.target.value
         }
     )
@@ -66,32 +52,20 @@ const priceHandler=(event)=>{
 }
 
 const descrHandler=(event)=>{
-    
     setNewInputs( prev => (
         {...prev,
-      
-            descr:event.target.value
+        descr:event.target.value
         }
     )
     )
    
 }
 
-console.log(isTitlevalid,isRoomsvalid,isPricevalid)
+
 
 const submitHalndler = () =>{
-    console.log(newInputs)
-    setNewInputs( prev => (
-        {...prev,
    
-        }
-        )
-    )
-
-  
-
     if (newInputs.name.length =='' ){
-        console.log(newInputs.name.length)
         setTitleValid(false)
         return
     }
@@ -103,7 +77,6 @@ const submitHalndler = () =>{
 
     if (newInputs.price=='' || newInputs.price<=0){
         setPricevalid(false)
-        console.log('validation logged')
         return
     }
 

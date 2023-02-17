@@ -1,4 +1,3 @@
-
 import { useState,useEffect } from 'react'
 import Form from './components/Form'
 import List from './components/List'
@@ -6,54 +5,28 @@ import axios from 'axios'
 
 const url='http://localhost:8000/apartments'
 
+
+
+
 function App() {
 const [hotelsList, setHotelsList] = useState([])
 
 
-// {appId:1,
-//   rooms:2,
-//   name:'Sun Hotel',
-//   price:'100',
-//   descr:'Nice hotel'
-//  },
-//  {appId:2,
-//   rooms:1,
-//   name:'Maris Hotel',
-//   price:'50',
-//   descr:'Nice hotel'
-//  },
-//  {appId:3,
-//   rooms:1,
-//   name:'Primera Hotel',
-//   price:'60',
-//   descr:'Nice hotel'
-//  }
-// ]
-
-console.log(hotelsList)
-
-const [selectedModeChanges,setSelectedModeChanges] = useState('')
-
-
-
 useEffect(() => {
-  
   function fetchedData (){
     return fetch(url);
-};
-
+  } 
 
   fetchedData().then((request => request.json()))
     .then(data => setHotelsList(data.apartments.sort((a,b)=>{ return a.price-b.price})) )
-  // .then(data => setHotelsList(data.apartments))
-  .catch(err=>console.log(err));
+    .catch(err=>console.log(err));
 
   console.log(hotelsList)
  
 }, []);
 
+
 const addNewItem = (data)=>{
-  console.log(hotelsList)
   setHotelsList([...hotelsList, data])
   localStorage.setItem('localData', JSON.stringify([...hotelsList, data]))
 
@@ -73,6 +46,7 @@ const addNewItem = (data)=>{
   window.location.reload()
 }
 
+
 const removeItem=(deletedItemID)=>{
   const newHotelsList = hotelsList.filter( hotel =>{
     return hotel._id !==deletedItemID
@@ -84,8 +58,6 @@ const removeItem=(deletedItemID)=>{
     localStorage.setItem('localData', JSON.stringify('empty'))
   }
 
-  console.log(deletedItemID._id)
-
   axios.delete(`http://localhost:8000/apartments/${deletedItemID}` )
   .then(response=>console.log(response.data))
   
@@ -94,7 +66,6 @@ const removeItem=(deletedItemID)=>{
 
 
 let filteredData;
-
 
 function selectedMode(selectedModeChoosed){
   
@@ -107,14 +78,6 @@ function selectedMode(selectedModeChoosed){
       return b.price-a.price
     })
   }
-
- sortChangeHandler(selectedModeChoosed)
- return 
-}
-
-const sortChangeHandler=(selectedModeChoosed)=>{
-  setSelectedModeChanges(selectedModeChoosed)
-  setHotelsList(filteredData)
 }
 
 

@@ -1,12 +1,21 @@
-
+import {useState} from 'react'
 
 const ListItem=(props)=>{
 
+
+console.log(props.listData)
+
 const deleteHandler = ()=>{
-    const deletedItemId = props.listData.id
+    const deletedItemId = props.listData._id;
     console.log(deletedItemId)
     props.onDelete(deletedItemId)
 }
+
+
+const editHandler =()=>{
+
+}
+
 
     return(
         

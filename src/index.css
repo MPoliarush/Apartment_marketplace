@@ -151,7 +151,7 @@ margin-right: 30px;
 .li{
   list-style-type: none;
   padding: 18px 25px;
-  font-size: 18px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -160,6 +160,8 @@ margin-right: 30px;
  transition: 1s ease-in;
  
 }
+
+
 
 .li button{
   width:100px;
@@ -170,6 +172,16 @@ margin-right: 30px;
   border-style: none;
   transition: 0.3s;
   font-weight: 700;
+}
+
+.editButton.button{
+
+  margin-right: 10px;
+  background-color: rgb(244, 184, 86);
+}
+
+.editButton.button:hover{
+  background-color: rgb(254, 159, 6);
 }
 
 .li button:hover{
@@ -263,7 +275,10 @@ select{
   font-size: 15px;
   color: black;
 }
-
+.no_apart{
+  padding: 15px 25px;
+  color: rgba(145, 145, 145, 0.5);
+}
 
 }
 
@@ -525,5 +540,10 @@ select{
     width:165px;
     font-size: 12px;
     color: black;
+  }
+
+  .no_apart{
+    padding: 15px 25px;
+    color: rgba(145, 145, 145, 0.5);
   }
 }

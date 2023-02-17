@@ -48,6 +48,8 @@ const ul = props.list.map( hotel =>{
 
 
     return(
+
+        
         <div className='ul_wrapper'>
             <div className="ul_header">
                 <h3>Available Apartments ({stateFilter.length>0 ? filteredList.length : ul.length})</h3>
@@ -68,16 +70,13 @@ const ul = props.list.map( hotel =>{
                 </div>                             
             </div>
         
-            <ul className="">
-    
-                {/* {props.list.map( hotel =>{ 
-                    return (
-                        <ListItem key={Math.random()} listData={hotel} onDelete={props.onDelete}></ListItem>
-                    )}
-                )} */}
+            <ul >
                 {stateFilter.length>0 ? filteredList : ul}
+                {ul.length==0 ? <p class='no_apart'>No apartments available</p> :''}
             </ul>
         </div>
+        
+        
         
     )
 }

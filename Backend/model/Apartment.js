@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const apartmentSchema = new Schema({
-  
     rooms:{
         type:Number,
         minimum:1,
@@ -23,9 +22,7 @@ const apartmentSchema = new Schema({
         type:String,
         maximum:999,
         required:false
-    },
+    }
 })
 
-module.exports = mongoose.model("Apartment",apartmentSchema)
-
-// 
+module.exports = mongoose.model("Apartment", apartmentSchema)

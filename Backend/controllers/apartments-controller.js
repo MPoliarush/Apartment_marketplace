@@ -10,7 +10,6 @@ const getAllapartments = async (req,res,next)=>{
     }
 
     if (!apartments){
-        
         return res.status(404).json({message:'No apartments found'})
     } 
     
@@ -19,7 +18,6 @@ const getAllapartments = async (req,res,next)=>{
 
 const addApartments = async (req,res,next)=>{
     let newApartments;
-    // const {id,rooms,name, price, description} = req.body;
     try{
         newApartments = new Apartment({
             rooms:req.body.rooms,
@@ -45,7 +43,7 @@ const getbyId = async (req,res,next)=>{
     const id = req.params.id
     let apartment;
     try{
-        apartment=await Apartment.findById(id)
+        apartment = await Apartment.findById(id)
     }catch(err){
         console.log(err)
     }
@@ -58,37 +56,12 @@ const getbyId = async (req,res,next)=>{
 }
 
 
-const updateApartment = async (req,res,next)=>{
-    const id = req.params.id;
-    const { rooms, name, price, descr} = req.body;
-    let apartment;
-    try{
-        apartment =await Apartment.findByIdAndUpdate(id,{
-          
-            rooms,
-            name,
-            price,
-            descr
-        })
-        apartment = await apartment.save()
-    } catch (err){
-        console.log(err)
-    }
-    if (!apartment){
-        return res.status(404).json({message:'Unable to update'})
-    } 
-
-    return res.status(200).json({apartment})
-}
-
 const deleteApartment = async (req,res,next)=>{
     const id = req.params.id;
-    console.log(id)
     const { rooms, name, price, descr} = req.body;
     let apartment;
     try{
         apartment = await Apartment.findByIdAndRemove(id,{
-
             rooms,
             name,
             price,
@@ -109,5 +82,4 @@ const deleteApartment = async (req,res,next)=>{
 exports.getAllapartments = getAllapartments;
 exports.addApartments = addApartments;
 exports.getbyId = getbyId;
-// exports.updateApartment = updateApartment;
 exports.deleteApartment = deleteApartment;
